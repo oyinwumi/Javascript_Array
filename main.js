@@ -1,71 +1,80 @@
-function extractKeys (arrays, key) 
-{
-    return arrays.map(item => item[key])
+console.log('question one')
+
+function findTheMedian(nums){
+      const median =Math.floor(nums.length / 2);
+      if (nums.length % 2 === 0) {
+      return (nums[median-1] + nums[median])/2
+   }
+   return nums[median];
 }
-const tt = extractKeys ([
-    {name: "Elie", isInstructor:true},
-    {name: "Tim", isInstructor:true},
-    {name: "Matt", isInstructor:true} , 
-], "name") 
-console.log(tt)
-
-function  filterLetters(arr, letter) {
-    return arr.filter(item => item.toLowerCase() === letter.toLowerCase()).length;
-}
-
-function valTimesIndex (array) {
-    return array.map((value, index) => value * index)
-}   
-
-function addKeyAndValue(array, key, value){
-    return array.map(element =>element[key] = value)
-}
-
-function printEmails(users){
-    users.forEach(user => {
-        console.log(user.email)
-    })
-}
-
-function printHobbies(users){
-    users.forEach(user => {
-        user.hobbies.forEach(hobby => {
-            console.log(hobby)
-        })
-    })
-}
-
-function  findHometownByState (users, state){
-    users.forEach(user => {
-        if (user.hometown.state === state) {
-            return user;
+ console.log(findTheMedian([4,9,9,2,1,5]))
+ 
+ console.log('question two')
+ function matchUp(a, b) {
+      let count = 0;
+      for (let i = 0; i < a.length; i++) {
+        if (Math.abs(a[i] - b[i]) <= 2 && Math.abs(a[i] - b[i]) !== 0) {
+         count += 1
         }
-    })
+      return count;
+      }
 }
+   console.log(matchUp([1, 2, 3], [2, 3, 10]))
+ 
+   console.log('question three')
+   function xyzMiddle(str) {
+     const midPoint = Math.floor((str.length - 3) / 2);
+     const allowedIndices = [midPoint];
+ 
+     if (str.length % 2 === 0) {
+         allowedIndices.push(midPoint + 1);
+      }
+   
+      const STRING_TO_FIND = "xyz";
+   
+      for (let i = 0; i < str.length; i++) {
+         if (str.substr(i, STRING_TO_FIND.length) === STRING_TO_FIND && allowedIndices.includes(i)) {
+            return true;
+         }
+     }
+ 
+     return false;
+   }
+   console.log(xyzMiddle('AAxyzBB'));
+ 
+   console.log('question four')
+   function evenOdd(nums) {
+     const odds = [];
+     const evens = [];
+ 
+     nums.forEach(num => {
+       if (num % 2 === 0) {
+         evens.push(num);
+       } else {
+         odds.push(num);
+       }
+     });
+ 
+     return evens.concat(odds);
+   }
+  console.log(evenOdd([1, 0, 1, 0, 0, 1, 1]))
 
-function allLanguages (users){
-    return Array(Set(users.reduce((acc, user) => acc = acc.push(...user.languages), [])));
-}
-
-function hasFavoriteEditor(users, editor){
-    return !!users.find(user => user.favoriteEditor === editor);
-}
-
-function vowelCount(letters){
-    const count = {}
-    letters.split('').forEach(letter => {
-        if ("aeiou".includes(letter)) {
-            if (count[letter]) {
-                count[letter]++
-            }else{
-                count[letter] = 1;
-            }
+   
+   console.log('question five')
+   function sameStarChar(str){
+      for (let i = 0; i < str.length; i++) {
+        if (str.charAt(i) === "*") {
+          const prevChar = str.charAt(i-1);
+          const nextChar = str.charAt(i+1);
+          
+          if (prevChar !== nextChar && ![nextChar, prevChar].includes("")) {
+            return false;
+          }
         }
-    })
+      }
+      
+      return true;
+    }
+    console.log(sameStarChar('xy*yzz'))
 
-    return count;
-}
-
-function removeVowels(string){
-    return string.split('').filter(letter => !['a', 'e', 'i', 'o', 'u'].includes(letter))
-}
+   
