@@ -1,4 +1,4 @@
-console.log('question one')
+   console.log('question one')
 
 function findTheMedian(nums){
       const median =Math.floor(nums.length / 2);
@@ -9,7 +9,7 @@ function findTheMedian(nums){
 }
  console.log(findTheMedian([4,9,9,2,1,5]))
  
- console.log('question two')
+      console.log('question two')
  function matchUp(a, b) {
       let count = 0;
       for (let i = 0; i < a.length; i++) {
